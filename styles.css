@@ -1,0 +1,44 @@
+body {
+    display: flex;
+    height: 100vh;
+    margin: 0;
+}   
+
+h1, label {
+    font-weight: bold;
+    color: #061E1E;
+}
+
+h1 {
+    font-size: 60px;
+    color: rgb(32, 147, 147);
+    text-align:center;
+    background-color: #061E1E;
+    /* border-bottom: solid 3px rgb(26, 87, 87);
+    border-top: solid 3px rgb(26, 87, 87); */
+    margin-top: 0;
+}
+
+label {
+    font-size: 1.5rem;
+    border-bottom: solid 2px #061E1E;
+}
+
+div {
+    background-color: rgb(32, 147, 147);
+    display: flex;
+    text-align: center;
+    flex-direction: row;
+    justify-content: space-evenly;
+    width: 100%;
+}
+
+.center {
+    background-color: rgb(26, 87, 87);
+    width: 30rem;
+}
+
+.player {
+    padding: 20px;
+    
+}
