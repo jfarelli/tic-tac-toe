@@ -4,14 +4,14 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./normalize.css">
+    <link rel="stylesheet" href="normalize.css">
     <link rel="stylesheet" href="styles.css">
     <title>Tic-Tac-Toe</title>
 </head>
 <body>
   <div class="content-wrapper">
     <section class="player">
-      <label class="player-one">Player 1</label>
+      <label class="player-one">Player's</label>
       <br>
       <label class="wins">Win Count</label>
       <br>
@@ -20,7 +20,7 @@
     </section>
     <section class="center">
       <h1 class="game-name">Tic-Tac-Toe</h1>
-      <label class="game-title">Crime & Punishment</label>
+      <label class="game-text">Sleuths vs. Hooligans</label>
       <div class="game-board">
         <div class="cell" game-square></div>
         <div class="cell" game-square></div>
@@ -34,20 +34,20 @@
       </div>
     </section>
     <section class="player">
-      <label class="player-two">Player 2</label>
+      <label class="player-two">Player's</label>
       <br>
       <label class="wins">Win Count</label>
       <br>
       <label class="display-wins" id="displayWins"></label>
       <img src="assets/Burgler.svg" alt="thief" class="thief-icon"/>
     </section>
-    <!-- <div class="winning-message" id="winningMessage">
-      <div data-winning-message-text></div>
+    <div class="winning-message" id="winningMessage">
+      <section class="winning-text" id="winningText"></section>
       <button id="restartButton">Restart</button>
-    </div> -->
+    </div>
   </div>
 </body>
-<script type="text/javascript" src="gams.js"></script>
+<script type="text/javascript" src="game.js"></script>
 <script type="text/javascript" src="player.js"></script>
 <script type="text/javascript" src="main.js"></script>
 </html>

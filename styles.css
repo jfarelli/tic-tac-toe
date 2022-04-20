@@ -12,6 +12,7 @@ body {
     display: flex;
     height: 100vh;
     margin: 0;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }   
 
 h1, label {
@@ -32,6 +33,26 @@ label {
     font-size: 2.5rem;
 }
 
+button {
+    background-color: rgb(32, 147, 147);
+    border: solid 4px #061E1E;
+    color: #061E1E;
+    padding: 15px 32px;
+    text-align: center;
+    display: inline-block;
+    font-size: 24px;
+    border-radius: 4px;
+    padding: 10px 20px ;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #061E1E;
+    border: solid 4px rgb(32, 147, 147);
+    color: rgb(32, 147, 147);
+    cursor: pointer;
+}
+
 .content-wrapper {
     background-color: rgb(32, 147, 147);
     display: flex;
@@ -48,6 +69,10 @@ label {
     grid-template-columns: repeat(3, auto);
     background-color: rgb(26, 87, 87);
     margin-block-start: 25%;
+}
+
+.game-text {
+    font-size: 45px;
 }
 
 .cell {
@@ -86,10 +111,6 @@ label {
     width: 30rem;
 }
 
-/* .game-title {
-    
-} */
-
 .player {
     padding: 80px 20px 40px 20px; 
     height: 100%;
@@ -122,6 +143,32 @@ label {
     padding: 0;
 }
 
-.box {
+/* .box {
     border: 2px solid black
+} */
+
+.winning-message {
+    display: none;
+    position: fixed;
+    top: 50px;
+    left: 250px;
+    right: 250px; 
+    bottom: 50px;
+    border: solid 40px rgba(6, 30, 30, .8);
+    background-color: rgba(26, 87, 87, .9);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.winning-message.show {
+    display: flex;
+}
+
+.winning-text {
+    color: #061E1E;
+    font-size: 100px;
+    font-weight: bold;
+    padding: 50px;
+    margin-bottom: 25px;
 }
