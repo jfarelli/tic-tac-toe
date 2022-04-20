@@ -1,5 +1,11 @@
 *, *::after, *::before {
     box-sizing: border-box;
+    position: relative;
+}
+
+* {
+    margin: 0;
+    padding: 0;
 }
 
 body {
@@ -12,6 +18,7 @@ h1, label {
     font-weight: bold;
     text-align:center;
     color: #061E1E;
+    margin-bottom: 10px;
 }
 
 h1 {
@@ -23,11 +30,9 @@ h1 {
 
 label {
     font-size: 2.5rem;
-    border-bottom: solid 2px #061E1E;
-    /* padding: 30px; */
 }
 
-div, .content-wrapper {
+.content-wrapper {
     background-color: rgb(32, 147, 147);
     display: flex;
     text-align: center;
@@ -79,31 +84,43 @@ div, .content-wrapper {
 .center {
     background-color: rgb(26, 87, 87);
     width: 30rem;
+}
+
+.game-title {
     
 }
 
 .player {
     padding: 80px 20px 40px 20px; 
     height: 100%;
-    width: auto;
+    width: 20%;
+    margin-bottom: 0;
+}
+
+.wins {
+    border-bottom: solid 2px #061E1E;
 }
 
 .thief-icon {
     display: flex;
     flex-direction: row;
     justify-content:center;
-    transform: scale(.18);
+    transform: scale(.55);
     width: 100%;
     height: auto;
-
+    margin-top: 50px;
 }
 
 .detective-icon {
     display: flex;
     flex-direction: row;
     justify-content: center;
-    transform: scale(.4);
+    transform: scale(.3);
     width: auto;
     height: auto;
     padding: 0;
+}
+
+.box {
+    border: 2px solid black
 }

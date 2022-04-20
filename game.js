@@ -1,5 +1,4 @@
 var PlayerOne = require('./player.js');
-var PlayerTwo = require('./player.js');
 // See about needing two player.js files...
 
 
