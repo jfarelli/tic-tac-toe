@@ -86,9 +86,9 @@ label {
     width: 30rem;
 }
 
-.game-title {
+/* .game-title {
     
-}
+} */
 
 .player {
     padding: 80px 20px 40px 20px; 
@@ -98,6 +98,7 @@ label {
 }
 
 .wins {
+    font-size: 25px;
     border-bottom: solid 2px #061E1E;
 }
 
@@ -105,17 +106,17 @@ label {
     display: flex;
     flex-direction: row;
     justify-content:center;
-    transform: scale(.55);
+    transform: scale(.4);
     width: 100%;
     height: auto;
-    margin-top: 50px;
+    margin-top: 100px;
 }
 
 .detective-icon {
     display: flex;
     flex-direction: row;
     justify-content: center;
-    transform: scale(.3);
+    transform: scale(.2);
     width: auto;
     height: auto;
     padding: 0;
