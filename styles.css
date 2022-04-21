@@ -63,17 +63,20 @@ button:hover {
     background-image: linear-gradient(rgba(26, 87, 87, .3), rgba(6, 30, 30, .6));
 }
 
+.game-text {
+    font-size: 45px;
+}
+
 .game-board {
     display: grid;
     justify-content: center;
     align-content: center;
+    justify-items: center;
+    align-items: center;
     grid-template-columns: repeat(3, auto);
     background-color: rgb(26, 87, 87);
+    /* margin: 0; */
     margin-block-start: 25%;
-}
-
-.game-text {
-    font-size: 45px;
 }
 
 .cell {
@@ -81,6 +84,23 @@ button:hover {
     height: 100px;
     background-color: rgb(26, 87, 87);
     border: 3px solid #061E1E;
+}
+
+.cell.sleuth,
+.game-board.sleuth .cell:not(.sleuth):not(.hooligan):hover {
+    content: url('assets/detective.svg');
+    padding: 15px;
+}
+
+.cell.hooligan,
+.game-board.hooligan .cell:not(.sleuth):not(.hooligan):hover  {
+    content: url('assets/Burgler.svg');
+    padding: 10px;
+}
+
+.cell.sleuth, 
+.cell.hooligan {
+    cursor: not-allowed;
 }
 
 .cell:hover {
@@ -133,7 +153,7 @@ button:hover {
     display: flex;
     flex-direction: row;
     justify-content:center;
-    transform: scale(.4);
+    transform: scale(.6);
     width: 100%;
     height: auto;
     margin-top: 100px;
@@ -143,11 +163,13 @@ button:hover {
     display: flex;
     flex-direction: row;
     justify-content: center;
-    transform: scale(.2);
+    transform: scale(.38);
     width: auto;
     height: auto;
     padding: 0;
 }
+
+
 
 /* .box {
     border: 2px solid black

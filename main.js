@@ -1,13 +1,14 @@
 // var Player = 'player.js';
 
 // Class & Global Variables
-var sleuth = new Player({ name: 'Sleuth', turn: false, token: img: 'assets/detective.svg', winner: false, wins: 0});
-var hooligan = new Player({ name: 'Hooligan', turn: false, token: icon, winner: false, wins: 0 });
-var playerTurn = sleuth.name || hooligan.name;
-var detectiveTurn;
+// var sleuth = new Player({ name: 'Sleuth', turn: false, winner: false, wins: 0});
+// var hooligan = new Player({ name: 'Hooligan', turn: false, winner: false, wins: 0 });
+const sleuth = 'sleuth'
+const hooligan = 'hooligan'
+var sleuthTurn;
 
 // querySelectors
-var gameBoardSquares = document.querySelectorAll(".cell");
+var gameBoardSquares = document.querySelectorAll('[game-square]');
 
 
 // eventListeners
@@ -16,27 +17,21 @@ gameBoardSquares.forEach(square => {
 })
 
 
-// function playerPlacement(square, playerTurn) {
-//     square.classList.add(playerTurn);
-// }
-
-
-function squareClicked(event) {
-    var square = event.target;
+function squareClicked(e) {
+    var square = e.target;
+    const currentPlayer = sleuthTurn ? hooligan : sleuth; //breakdown and convert to if/else
+    placeIcon(square, currentPlayer);
     whosTurn();
-    // playerPlacement();
+    //check for win by running through an array of possible outcomes of 3 in a row
+    //check for draw if there are no connections of 3
 }
 
+function placeIcon(square, currentPlayer) {
+    square.classList.add(currentPlayer)
+}
 
 function whosTurn() {
-    if (detectiveTurn === sleuth.name) {
-        sleuth.turn = true;
-        return `It's the ${sleuth.name}'s Turn!`;
-    } else if (detectiveTurn === hooligan.name) {
-        hooligan.turn = true;
-        return `It's the ${hooligan.name}'s Turn!`;
-    }
+    sleuthTurn = !sleuthTurn
 }
 
 
-// createElement function to display icons after click
