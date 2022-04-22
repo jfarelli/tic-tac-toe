@@ -1,8 +1,7 @@
 // var Player = 'player.js';
 
 // Class & Global Variables
-// var sleuth = new Player({ name: 'Sleuth', turn: false, winner: false, wins: 0});
-// var hooligan = new Player({ name: 'Hooligan', turn: false, winner: false, wins: 0 });
+
 const sleuth = 'sleuth'
 const hooligan = 'hooligan'
 var sleuthTurn;

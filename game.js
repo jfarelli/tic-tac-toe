@@ -1,6 +1,41 @@
 // var PlayerOne = require('./player.js');
-// See about needing two player.js files...
+// var sleuth = new Player({ name: 'Sleuth', turn: false, winner: false, wins: 0});
+// var hooligan = new Player({ name: 'Hooligan', turn: false, winner: false, wins: 0 });
 
+// var winningNumbers = [
+//     [0, 1, 2],
+//     [3, 4, 5],
+//     [6, 7, 8],
+//     [0, 3, 6],
+//     [1, 4, 7],
+//     [2, 5, 8],
+//     [0, 4, 8],
+//     [2, 4, 6],
+// ]
+// class Game {
+//     constructor(sleuth, hooligan) {
+//         this.player1 = sleuth;
+//         this.player2 = hooligan;
+//         this.currentPlayer;
+//         this.winner;
+//         this.gameSquares = [all to null, destring(look it up)]
+//         this.win = false;
+//     }
+// }
+
+changePlayer() {
+
+}
+
+function whoWins() {
+    for (var i = 0; i < winningNumbers.length; i++) {
+        // if ()player 1, or 2 . picks a winning array of squares . then that player wins
+        // else return draaw
+}
+
+// varible laying out grid
+// possible win combos
+// who wins
 
 // A way to keep track of the data for the game board:
 
