@@ -1,14 +1,12 @@
 var main = './main.js';
 // var Player = new Player();
-// var sleuth = new Player({ name: 'Sleuth', turn: false, icon: 'assets/detective.svg', wins: 0});
-// var hooligan = new Player({ name: 'Hooligan', turn: false, icon: 'assets/Burgler.svg', wins: 0 });
 
 
 class Game {
-    constructor(sleuth, hooligan) {
-        this.player1 = sleuth;
-        this.player2 = hooligan;
-        this.currentPlayer = "X";
+    constructor() {
+        this.player1 = new Player('Sleuth', 'assets/detective.svg');
+        this.player2 = new Player( 'Hooligan', 'assets/Burgler.svg');
+        this.currentPlayer;
         this.isGameSet = true;
         this.gameBoard = ["", "", "", "", "", "", "", ""];
         this.winner;
@@ -22,6 +20,10 @@ class Game {
             [0, 4, 8],
             [2, 4, 6],
         ]
+    }
+
+    whosTurn() {
+        this.currentPlayer = !this.currentPlayer
     }
 
     // whosFirst() {
