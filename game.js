@@ -1,13 +1,15 @@
-// var game = './main.js';
-// var player = './player.js';
-// var sleuth = new Player({ name: 'Sleuth', turn: false, winner: false, wins: 0});
-// var hooligan = new Player({ name: 'Hooligan', turn: false, winner: false, wins: 0 });
+var main = './main.js';
+// var Player = new Player();
+// var sleuth = new Player({ name: 'Sleuth', turn: false, icon: 'assets/detective.svg', wins: 0});
+// var hooligan = new Player({ name: 'Hooligan', turn: false, icon: 'assets/Burgler.svg', wins: 0 });
+
 
 class Game {
     constructor(sleuth, hooligan) {
         this.player1 = sleuth;
         this.player2 = hooligan;
-        this.currentPlayerTurn;
+        this.currentPlayer = "X";
+        this.isGameSet = true;
         this.gameBoard = ["", "", "", "", "", "", "", ""];
         this.winner;
         this.winningNumbers = [
@@ -22,23 +24,40 @@ class Game {
         ]
     }
 
-    whosFirst() {
-        var whosMove = [this.player1, this.player2];
-        var yourMove = Math.floor(Math.random() * whosMove.length);
-        //need to link the appropriate icon after game Class is done. Maybe move to main file since accesing element id???
-        this.currentPlayerTurn = whosMove[yourMove]
-    }
+    // whosFirst() {
+    //     var whosMove = [this.player1, this.player2];
+    //     var yourMove = Math.floor(Math.random() * whosMove.length);
+    //     //need to link the appropriate icon after game Class is done. Maybe move to main file since accesing element id???
+    //     this.currentPlayerTurn = whosMove[yourMove]
+    // }
 
-    startingPoint(emptySquares) {
-        this.gameBoard[emptySquares] = this.currentPlayerTurn.icon;
-    }
+    // startingPoint(emptySquares) {
+    //     this.gameBoard[emptySquares] = this.currentPlayerTurn.icon;
+    // }
+    
+    
+    // squareSelected(squareClicked, squareClickedIndex) {
+    //     gameBoard[squareClickedIndex] = currentPlayer;
+    //     squareClicked.innerHTML = currentPlayer;
+    //     console.log('click')
+    // }
+   
+
+    
+    
 
 }
 
 
-function squareClicked() {
 
-}
+
+
+
+
+
+
+
+
 function whosTurnNow() {
 
 }
