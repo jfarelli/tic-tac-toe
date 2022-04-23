@@ -3,16 +3,16 @@ var game = new Game();
 // var playerTurn = document.querySelector('.player-turn');
 // var sleuth = new Player("Sleuth", 'assets/detective.svg');
 // var hooligan = new Player("Hooligan", 'assets/Burgler.svg');
-// var currentTur = `It's the ${sleuth}'s Turn!` || `It's the ${hooligan}'s Turn!`
-// var gameBoardSquares = document.querySelectorAll('.cell');
+// var currentTurn = `It's the ${sleuth}'s Turn!` || `It's the ${hooligan}'s Turn!`
 // gameBoardSquares.forEach(square => square.addEventListener('click', handleSquareClicked, {once: true}))
-var gameSquares = document.querySelectorAll('.cell')
+var winningMessage = document.getElementById("winningMessage")
+var winningText = document.querySelector(".winning-text")
+var gameBoardSquares = document.querySelectorAll('.cell')
 
-gameSquares.forEach(square => {
+
+gameBoardSquares.forEach(square => {
     square.addEventListener('click', squareClicked, {once: true})
 })
-
-
 
 
 
@@ -27,10 +27,20 @@ function squareClicked(e) {
     placeIcon(square, playerMove);
     game.whosTurn();
     if (winningConditions(playerMove)) {
-        console.log('winner')
+        gameCompleted(false);
+        // console.log('winner')
     }
     //check for win by running through an array of possible outcomes of 3 in a row
     //check for draw if there are no connections of 3
+}
+
+function gameCompleted(draw) {
+    if (draw) {
+
+    } else {
+        winningText.innerText = `The ${game.currentPlayer ? 'Sleuth' : 'Hooligan'} wins!`
+    }
+    winningMessage.classList.add('show');
 }
 
 function placeIcon(square, playerMove) {
@@ -40,7 +50,7 @@ function placeIcon(square, playerMove) {
 function winningConditions(playerMove) {
     return game.winningNumbers.some(combination => {
         return combination.every(square => {
-            return gameSquares[square].classList.contains(playerMove)
+            return gameBoardSquares[square].classList.contains(playerMove)
         })
     })
 
