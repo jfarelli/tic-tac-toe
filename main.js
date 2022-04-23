@@ -3,7 +3,7 @@ var game = new Game();
 // var playerTurn = document.querySelector('.player-turn');
 // var sleuth = new Player("Sleuth", 'assets/detective.svg');
 // var hooligan = new Player("Hooligan", 'assets/Burgler.svg');
-// var currentTurnTurn = `It's the ${sleuth}'s Turn!` || `It's the ${hooligan}'s Turn!`
+// var currentTur = `It's the ${sleuth}'s Turn!` || `It's the ${hooligan}'s Turn!`
 // var gameBoardSquares = document.querySelectorAll('.cell');
 // gameBoardSquares.forEach(square => square.addEventListener('click', handleSquareClicked, {once: true}))
 var gameSquares = document.querySelectorAll('.cell')
@@ -13,23 +13,38 @@ gameSquares.forEach(square => {
 })
 
 
+
+
+
+
+
+
 function squareClicked(e) {
     var square = e.target;
     var sleuth = 'sleuth'
     var hooligan = 'hooligan'
-    const currentTurn = game.currentPlayer ? hooligan : sleuth;
-    placeIcon(square, currentTurn);
+    const playerMove = game.currentPlayer ? hooligan : sleuth;
+    placeIcon(square, playerMove);
     game.whosTurn();
+    if (winningConditions(playerMove)) {
+        console.log('winner')
+    }
     //check for win by running through an array of possible outcomes of 3 in a row
     //check for draw if there are no connections of 3
 }
 
-function placeIcon(square, currentTurn) {
-    square.classList.add(currentTurn)
+function placeIcon(square, playerMove) {
+    square.classList.add(playerMove)
 }
 
+function winningConditions(playerMove) {
+    return game.winningNumbers.some(combination => {
+        return combination.every(square => {
+            return gameSquares[square].classList.contains(playerMove)
+        })
+    })
 
-
+}
 
 
 
@@ -73,7 +88,7 @@ function placeIcon(square, currentTurn) {
 
 
 // function squareSelected(squareClicked, squareClickedIndex) {
-//     game.gameBoard[squareClickedIndex] = game.currentTurn;
-//     squareClicked.innerHTML = game.currentTurn;
+//     game.gameBoard[squareClickedIndex] = game.playerMove;
+//     squareClicked.innerHTML = game.playerMove;
 //     console.log('click')
 // }

@@ -4,8 +4,8 @@ var main = './main.js';
 
 class Game {
     constructor() {
-        this.player1 = new Player('Sleuth', 'assets/detective.svg');
-        this.player2 = new Player( 'Hooligan', 'assets/Burgler.svg');
+        this.player1 = new Player('Sleuth', '<img src="assets/detective.svg" alt="sleuth" class="sleuth-icon"/>');
+        this.player2 = new Player( 'Hooligan', '<img src="assets/Burgler.svg" alt="hooligan" class="hooligan-icon"/>');
         this.currentPlayer;
         this.isGameSet = true;
         this.gameBoard = ["", "", "", "", "", "", "", ""];
@@ -26,11 +26,18 @@ class Game {
         this.currentPlayer = !this.currentPlayer
     }
 
+
+    whoWon() {
+
+    }
+
+    
     // whosFirst() {
     //     var whosMove = [this.player1, this.player2];
     //     var yourMove = Math.floor(Math.random() * whosMove.length);
     //     //need to link the appropriate icon after game Class is done. Maybe move to main file since accesing element id???
     //     this.currentPlayerTurn = whosMove[yourMove]
+    //     whosTurn();
     // }
 
     // startingPoint(emptySquares) {
