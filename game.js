@@ -1,38 +1,57 @@
+// var game = './main.js';
 // var PlayerOne = require('./player.js');
 // var sleuth = new Player({ name: 'Sleuth', turn: false, winner: false, wins: 0});
 // var hooligan = new Player({ name: 'Hooligan', turn: false, winner: false, wins: 0 });
 
-// var winningNumbers = [
-//     [0, 1, 2],
-//     [3, 4, 5],
-//     [6, 7, 8],
-//     [0, 3, 6],
-//     [1, 4, 7],
-//     [2, 5, 8],
-//     [0, 4, 8],
-//     [2, 4, 6],
-// ]
-// class Game {
-//     constructor(sleuth, hooligan) {
-//         this.player1 = sleuth;
-//         this.player2 = hooligan;
-//         this.currentPlayer;
-//         this.winner;
-//         this.gameSquares = [all to null, destring(look it up)]
-//         this.win = false;
-//     }
-// }
+class Game {
+    constructor(sleuth, hooligan) {
+        this.player1 = sleuth;
+        this.player2 = hooligan;
+        this.currentPlayerTurn;
+        this.gameBoard = [null, null, null, null, null, null, null, null];
+        this.winner;
+        this.winningNumbers = [
+            [0, 1, 2],
+            [3, 4, 5],
+            [6, 7, 8],
+            [0, 3, 6],
+            [1, 4, 7],
+            [2, 5, 8],
+            [0, 4, 8],
+            [2, 4, 6],
+        ]
+    }
+
+    whosFirst() {
+        var whosMove = [this.player1, this.player2];
+        var yourMove = Math.floor(Math.random() * whosMove.length);
+        //need to link the appropriate icon after game Class is done. Maybe move to main file since accesing element id???
+        this.currentPlayerTurn = whosMove[yourMove]
+    }
+
+    startingPoint(emptySquares) {
+        this.gameBoard[emptySquares] = this.currentPlayerTurn.icon;
+    }
+
+
+
+
+
+
+
+
 
 changePlayer() {
 
 }
 
-function whoWins() {
+whoWins() {
     for (var i = 0; i < winningNumbers.length; i++) {
         // if ()player 1, or 2 . picks a winning array of squares . then that player wins
         // else return draaw
 }
-
+}
+}
 // varible laying out grid
 // possible win combos
 // who wins
