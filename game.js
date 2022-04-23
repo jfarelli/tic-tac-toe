@@ -1,5 +1,5 @@
 // var game = './main.js';
-// var PlayerOne = require('./player.js');
+// var player = './player.js';
 // var sleuth = new Player({ name: 'Sleuth', turn: false, winner: false, wins: 0});
 // var hooligan = new Player({ name: 'Hooligan', turn: false, winner: false, wins: 0 });
 
@@ -8,7 +8,7 @@ class Game {
         this.player1 = sleuth;
         this.player2 = hooligan;
         this.currentPlayerTurn;
-        this.gameBoard = [null, null, null, null, null, null, null, null];
+        this.gameBoard = ["", "", "", "", "", "", "", ""];
         this.winner;
         this.winningNumbers = [
             [0, 1, 2],
@@ -33,25 +33,62 @@ class Game {
         this.gameBoard[emptySquares] = this.currentPlayerTurn.icon;
     }
 
+}
 
 
+function squareClicked() {
 
+}
+function whosTurnNow() {
 
+}
+function whoWon() {
 
+}
+function whichSquareClicked() {
 
-
-
-changePlayer() {
+}
+function restartGame() {
 
 }
 
-whoWins() {
+
+
+
+// document.querySelectorAll('.cell').forEach(cell => cell.addEventListener('click', handleCellClick));
+// document.querySelector('.game--restart').addEventListener('click', handleRestartGame);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+function changePlayer() {
+
+}
+
+function whoWins() {
     for (var i = 0; i < winningNumbers.length; i++) {
         // if ()player 1, or 2 . picks a winning array of squares . then that player wins
         // else return draaw
+    }
 }
-}
-}
+
 // varible laying out grid
 // possible win combos
 // who wins
