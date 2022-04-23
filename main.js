@@ -1,5 +1,5 @@
 // var Player = 'player.js';
-var game = 'game.js';
+var game = new Game();
 var playerTurn = document.querySelector('.player-turn');
 var sleuth = new Player({name: "Sleuth"});
 var hooligan = new Player({name: "Hooligan"});
@@ -9,16 +9,15 @@ gameBoardSquares.forEach(square => square.addEventListener('click', handleSquare
 )
 
 // document.querySelector('.restart-button').addEventListener('click', handleRestartGame);
-var gameBoard = ["", "", "", "", "", "", "", ""];
-var currentPlayer = "X";
-var isGameSet = true;
+// var currentPlayer = "X";
+// var isGameSet = true;
 
 function handleSquareClicked(e) {
     const squareClicked = e.target;
     const squareClickedIndex = parseInt(
         squareClicked.getAttribute('game-square-index')
       );
-      if (gameBoard[squareClickedIndex] !== "" || !isGameSet) {
+      if (game.gameBoard[squareClickedIndex] !== "" || !game.isGameSet) {
         return;
     }
     squareSelected(squareClicked, squareClickedIndex);
@@ -26,8 +25,8 @@ function handleSquareClicked(e) {
 
 
 function squareSelected(squareClicked, squareClickedIndex) {
-    gameBoard[squareClickedIndex] = currentPlayer;
-    squareClicked.innerHTML = currentPlayer;
+    game.gameBoard[squareClickedIndex] = game.currentPlayer;
+    squareClicked.innerHTML = game.currentPlayer;
     console.log('click')
 }
 

@@ -1,14 +1,14 @@
 var main = './main.js';
-// var Player = './player.js';
-// var sleuth = new Player({ name: 'Sleuth', turn: false, wins: 0});
-// var hooligan = new Player({ name: 'Hooligan', turn: false, wins: 0 });
+// var Player = new Player();
+// var sleuth = new Player({ name: 'Sleuth', turn: false, icon: 'assets/detective.svg', wins: 0});
+// var hooligan = new Player({ name: 'Hooligan', turn: false, icon: 'assets/Burgler.svg', wins: 0 });
 
 
 class Game {
     constructor(sleuth, hooligan) {
         this.player1 = sleuth;
         this.player2 = hooligan;
-        this.currentPlayerTurn;
+        this.currentPlayer = "X";
         this.isGameSet = true;
         this.gameBoard = ["", "", "", "", "", "", "", ""];
         this.winner;
