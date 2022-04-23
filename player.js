@@ -1,16 +1,15 @@
 class Player {
-    constructor(id, name, icon) {
-        this.id = id;
+    constructor(name, icon) {
         this.name = name;
         this.turn = false;
-        // this.token = icon.token;
-        this.winner = false;
+        this.icon = icon;
         this.wins = 0;
     }
 
     increaseWins() {
         if (this.winner === true) {
             this.wins++;
+            this.winner = false;
         }
     }
-}   
+} 
