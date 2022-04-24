@@ -1,7 +1,8 @@
 var playerTurnText = document.querySelector('.player-turn');
 var winningText = document.querySelector(".winning-text");
 var winningMessage = document.getElementById("winningMessage");
-
+var displaySleuthWins = document.querySelector('.display-sleuth-wins');
+var displayHooliganWins = document.querySelector('.display-hooligan-wins');
 
 // var playerTurn = document.getElementById('displayTurn');
 // playerTurn.innerHTML = displayPlayerTurn();
@@ -28,6 +29,7 @@ function gameStart() {
         square.classList.remove('sleuth');
         square.addEventListener('click', squareClicked, {once: true})
         displayPlayerTurn();
+        displayWinCount();
     })
     winningMessage.classList.remove('show');
    
@@ -35,13 +37,12 @@ function gameStart() {
 
 function squareClicked(e) {
     var square = e.target;
-    const sleuth = 'sleuth';
-    const hooligan = 'hooligan';
+    sleuth = 'sleuth';
+    hooligan = 'hooligan';
     const playerMove = game.currentPlayer ? hooligan : sleuth;
     displayPlayerTurn();
-    // game.whosTurn();
     iconPlacement(square, playerMove);
-    if (winningConditions(playerMove)) {
+    if (whoWins(playerMove)) {
         gameCompleted(false);
     } 
     if (itsADraw()) {
@@ -54,7 +55,8 @@ function gameCompleted(draw) {
         winningText.innerText = `It's a stalemate!`
     } else {
         winningText.innerText = `The ${game.currentPlayer ? 'Sleuth' : 'Hooligan'} wins!`
-        // player.increaseWins()
+        // return game.currentPlayer.wincount();
+        // gam.currentPlayer.increaseWins()
     }
     winningMessage.classList.add('show');
 }
@@ -69,34 +71,48 @@ function iconPlacement(square, playerMove) {
     square.classList.add(playerMove)
 }
 
-function winningConditions(playerMove) {
+function whoWins(playerMove) {
     return game.winningNumbers.some(combination => {
         return combination.every(square => {
             return gameBoardSquares[square].classList.contains(playerMove)
         })
-    })
+    }) 
 }
 
+// function displayWins() {
+//     displaySleuthWins.innerText = (`${game.player1.winCount} WINS`);
+//     displayHooliganhWins.innerText = (`${game.player2.winCount} WINS`);
+//   }
+
+// //need to stop display after win
 function displayPlayerTurn() {
     game.whosTurn()
     playerTurnText.innerText = `It's the ${game.currentPlayer ? 'Hooligan' : 'Sleuth'}'s turn!`
-    
 }
 
-// a win should add 1 to player.wins
+// should invoke increaseWins()
 // should be displayed on the screen
 // should be updated every win
-function displayPlayerWins() {
-    if (winningConditions(playerMove) {
+// function displayPlayerWins() {
+//     if (game.currentPlayer === sleuth) {
+//         sleuth.increaseWins()
+//         displayWinCount.innerText = `${sleuth}`;
+//     } else if (game.currentPlayer === hooligan) {
+//         hooligan.increaseWins()
+//         displayWinCount.innerText = `${hooligan}`;
+//     }
+// }
 
-    })
+function displayWinCount() {
+    if (whoWins(game.currentPlayer)) {
+        return displaySleuthWins.innerText = `${game.player1.winCount}`
+    } else {
+        return displayHooliganWins.innerText = `${game.player2.winCount}`
+  }
 }
-
-
-
 // function displayPlayerTurn(playerMove) {
 //     // game.currentPlayer = `It's the ${game.currentPlayer}'s turn!`
-//     if (winningConditions(playerMove)) {
+//     if (whoWins(playerMove)) {
 //         return playerMove.playerTurn.innerHTML = `It's ${game.currentPlayer}'s Turn!`;
 //     }
 //     // if (game.currentPlayer === 'sleuth') {

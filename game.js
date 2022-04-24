@@ -21,10 +21,12 @@ class Game {
     }
 
     whosTurn() {
-        this.currentPlayer = !this.currentPlayer;
+        this.currentPlayer = !this.currentPlayer
+        
+        // console.log(this.currentPlayer)
     }
 
-
+   
 
     // whosFirst() {
     //     var whosMove = [this.player1, this.player2];

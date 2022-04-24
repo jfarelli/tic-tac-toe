@@ -88,22 +88,20 @@ button:hover {
     border: 3px solid #061E1E;
 }
 
-.cell.sleuth,
-.game-board.sleuth .cell:not(.sleuth):not(.hooligan):hover {
+.cell.sleuth {
     content: url('assets/detective.svg');
     padding: 15px;
 }
 
-.cell.hooligan,
-.game-board.hooligan .cell:not(.sleuth):not(.hooligan):hover  {
+.cell.hooligan{
     content: url('assets/Burgler.svg');
     padding: 10px;
 }
 
-.cell.sleuth, 
+/* .cell.sleuth, 
 .cell.hooligan {
     cursor: not-allowed;
-}
+} */
 
 .cell:hover {
     background-color: rgba(6, 30, 30, .2);
