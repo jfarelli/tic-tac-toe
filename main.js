@@ -21,11 +21,10 @@ function gameStart() {
         square.classList.remove('hooligan');
         square.classList.remove('sleuth');
         square.addEventListener('click', squareClicked, {once: true})
+        // game.toggleTurn();
         displayPlayerTurn();
         displayWinCount();
-    })
-    winningMessage.classList.remove('show');
-   
+    })   
 }
 
 function squareClicked(e) {
@@ -45,12 +44,13 @@ function squareClicked(e) {
 
 function gameCompleted(draw) {
     if (draw) {
-        winningText.innerText = `It's a stalemate!`
+        playerTurnText.innerText = `It's a stalemate!`
     } else {
-        winningText.innerText = `The ${game.currentPlayer ? 'Sleuth' : 'Hooligan'} wins!`
+        playerTurnText.innerText = `The ${game.currentPlayer ? 'Sleuth' : 'Hooligan'} wins!`
         game.updatePlayerWins()
+        timeOut()
     }
-    winningMessage.classList.add('show');
+    // winningMessage.classList.add('show');
 }
 
 function itsADraw() {
@@ -58,6 +58,10 @@ function itsADraw() {
         return square.classList.contains('sleuth') || square.classList.contains('hooligan');
     })
 }
+
+function timeOut() {
+    window.setTimeout(gameStart, 2000);
+  }
 
 function iconPlacement(square) {
     square.classList.add(game.playerMove)

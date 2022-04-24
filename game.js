@@ -32,6 +32,16 @@ class Game {
             this.player2.increaseWins()
         }
     }
+
+    // toggleTurn() {
+    //     if(this.currentPlayer === this.player2) {
+    //       this.currentPlayer = this.player1;
+    //     } else {
+    //       this.currentPlayer = this.player2;
+    //     }
+    //   }
+
+   
    
     
 
