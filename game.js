@@ -5,9 +5,9 @@ class Game {
         this.player1 = new Player('Sleuth', '<img src="assets/detective.svg"class="sleuth-icon"/>');
         this.player2 = new Player( 'Hooligan', '<img src="assets/Burgler.svg"class="hooligan-icon"/>');
         this.currentPlayer;
+        this.playerMove;
         this.isGameSet = true;
         this.gameBoard = ["", "", "", "", "", "", "", "", ""];
-        this.winner;
         this.winningNumbers = [
             [0, 1, 2],
             [3, 4, 5],
@@ -21,10 +21,19 @@ class Game {
     }
 
     whosTurn() {
-        this.currentPlayer = !this.currentPlayer;
+        this.currentPlayer = !this.currentPlayer
+        // console.log(this.currentPlayer)
     }
 
-
+    updatePlayerWins() {
+        if (game.currentPlayer) {
+            this.player1.increaseWins()
+        } else {
+            this.player2.increaseWins()
+        }
+    }
+   
+    
 
     // whosFirst() {
     //     var whosMove = [this.player1, this.player2];
