@@ -1,46 +1,65 @@
 // var Player = 'player.js';
 var game = new Game();
+
 // var playerTurn = document.querySelector('.player-turn');
 // var sleuth = new Player("Sleuth", 'assets/detective.svg');
 // var hooligan = new Player("Hooligan", 'assets/Burgler.svg');
 // var currentTurn = `It's the ${sleuth}'s Turn!` || `It's the ${hooligan}'s Turn!`
 // gameBoardSquares.forEach(square => square.addEventListener('click', handleSquareClicked, {once: true}))
-var winningMessage = document.getElementById("winningMessage")
-var winningText = document.querySelector(".winning-text")
-var gameBoardSquares = document.querySelectorAll('.cell')
+var winningMessage = document.getElementById("winningMessage");
+var winningText = document.querySelector(".winning-text");
+var resetButton = document.getElementById("restartButton");
+var gameBoardSquares = document.querySelectorAll('.cell');
 
 
-gameBoardSquares.forEach(square => {
-    square.addEventListener('click', squareClicked, {once: true})
-})
 
 
+gameStart();
+
+resetButton.addEventListener('click', gameStart);
+
+function gameStart() {
+    game.currentPlayer = false;
+    gameBoardSquares.forEach(square => {
+        square.classList.remove('hooligan');
+        square.classList.remove('sleuth');
+        square.addEventListener('click', squareClicked, {once: true})
+    })
+    winningMessage.classList.remove('show');
+}
 
 
 
 
 function squareClicked(e) {
     var square = e.target;
-    var sleuth = 'sleuth'
-    var hooligan = 'hooligan'
+    const sleuth = 'sleuth';
+    const hooligan = 'hooligan';
     const playerMove = game.currentPlayer ? hooligan : sleuth;
     placeIcon(square, playerMove);
     game.whosTurn();
     if (winningConditions(playerMove)) {
         gameCompleted(false);
-        // console.log('winner')
-    }
-    //check for win by running through an array of possible outcomes of 3 in a row
-    //check for draw if there are no connections of 3
+    } 
+    if (itsADraw()) {
+        gameCompleted(true);
+    } 
+
 }
 
 function gameCompleted(draw) {
     if (draw) {
-
+        winningText.innerText = `It's a stalemate!`
     } else {
         winningText.innerText = `The ${game.currentPlayer ? 'Sleuth' : 'Hooligan'} wins!`
     }
     winningMessage.classList.add('show');
+}
+
+function itsADraw() {
+    return [...gameBoardSquares].every(square => {
+        return square.classList.contains('sleuth') || square.classList.contains('hooligan');
+    })
 }
 
 function placeIcon(square, playerMove) {

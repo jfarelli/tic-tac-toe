@@ -23,7 +23,7 @@ class Game {
     }
 
     whosTurn() {
-        this.currentPlayer = !this.currentPlayer
+        this.currentPlayer = !this.currentPlayer;
     }
 
 
