@@ -1,22 +1,25 @@
-// var Player = 'player.js';
-var game = new Game();
-
-// var playerTurn = document.querySelector('.player-turn');
-// var sleuth = new Player("Sleuth", 'assets/detective.svg');
-// var hooligan = new Player("Hooligan", 'assets/Burgler.svg');
-// var currentTurn = `It's the ${sleuth}'s Turn!` || `It's the ${hooligan}'s Turn!`
-// gameBoardSquares.forEach(square => square.addEventListener('click', handleSquareClicked, {once: true}))
-var winningMessage = document.getElementById("winningMessage");
+var playerTurnText = document.querySelector('.player-turn');
 var winningText = document.querySelector(".winning-text");
-var resetButton = document.getElementById("restartButton");
-var gameBoardSquares = document.querySelectorAll('.cell');
+var winningMessage = document.getElementById("winningMessage");
+
+
+// var playerTurn = document.getElementById('displayTurn');
+// playerTurn.innerHTML = displayPlayerTurn();
+// var playerTurnDisplay = document.querySelector('player-turn');
+
+var game = new Game();
+var sleuth = new Player();
+var hooligan = new Player();
+var restartButton = document.getElementById("restartButton")
+var gameBoardSquares = document.querySelectorAll('.cell')
 
 
 
 
 gameStart();
 
-resetButton.addEventListener('click', gameStart);
+restartButton.addEventListener('click', gameStart);
+
 
 function gameStart() {
     game.currentPlayer = false;
@@ -24,27 +27,26 @@ function gameStart() {
         square.classList.remove('hooligan');
         square.classList.remove('sleuth');
         square.addEventListener('click', squareClicked, {once: true})
+        displayPlayerTurn();
     })
     winningMessage.classList.remove('show');
+   
 }
-
-
-
 
 function squareClicked(e) {
     var square = e.target;
     const sleuth = 'sleuth';
     const hooligan = 'hooligan';
     const playerMove = game.currentPlayer ? hooligan : sleuth;
-    placeIcon(square, playerMove);
-    game.whosTurn();
+    displayPlayerTurn();
+    // game.whosTurn();
+    iconPlacement(square, playerMove);
     if (winningConditions(playerMove)) {
         gameCompleted(false);
     } 
     if (itsADraw()) {
         gameCompleted(true);
     } 
-
 }
 
 function gameCompleted(draw) {
@@ -52,6 +54,7 @@ function gameCompleted(draw) {
         winningText.innerText = `It's a stalemate!`
     } else {
         winningText.innerText = `The ${game.currentPlayer ? 'Sleuth' : 'Hooligan'} wins!`
+        // player.increaseWins()
     }
     winningMessage.classList.add('show');
 }
@@ -62,7 +65,7 @@ function itsADraw() {
     })
 }
 
-function placeIcon(square, playerMove) {
+function iconPlacement(square, playerMove) {
     square.classList.add(playerMove)
 }
 
@@ -72,11 +75,36 @@ function winningConditions(playerMove) {
             return gameBoardSquares[square].classList.contains(playerMove)
         })
     })
+}
 
+function displayPlayerTurn() {
+    game.whosTurn()
+    playerTurnText.innerText = `It's the ${game.currentPlayer ? 'Hooligan' : 'Sleuth'}'s turn!`
+    
+}
+
+// a win should add 1 to player.wins
+// should be displayed on the screen
+// should be updated every win
+function displayPlayerWins() {
+    if (winningConditions(playerMove) {
+
+    })
 }
 
 
 
+// function displayPlayerTurn(playerMove) {
+//     // game.currentPlayer = `It's the ${game.currentPlayer}'s turn!`
+//     if (winningConditions(playerMove)) {
+//         return playerMove.playerTurn.innerHTML = `It's ${game.currentPlayer}'s Turn!`;
+//     }
+//     // if (game.currentPlayer === 'sleuth') {
+//     //     return playerTurn.innerHTML = `It's ${game.currentPlayer}'s Turn!`;
+//     // } else if (game.currentPlayer === 'hooligan') {
+//     //     return playerTurn.innerHTML = `It's ${game.currentPlayer}'s Turn!`;
+//     // }
+// }
 
 
 
@@ -104,7 +132,14 @@ function winningConditions(playerMove) {
 
 
 
-// function handleSquareClicked(e) {
+
+
+
+
+
+
+
+// function clickedSquareEvent(e) {
 //     const squareClicked = e.target;
 //     const squareClickedIndex = parseInt(
 //         squareClicked.getAttribute('game-square-index')
@@ -115,9 +150,19 @@ function winningConditions(playerMove) {
 //     squareSelected(squareClicked, squareClickedIndex);
 // }
 
-
 // function squareSelected(squareClicked, squareClickedIndex) {
-//     game.gameBoard[squareClickedIndex] = game.playerMove;
-//     squareClicked.innerHTML = game.playerMove;
+//     game.gameBoard[squareClickedIndex] = game.currentPlayer;
+//     squareClicked.innerHTML = game.player1.icon || game.player2.icon;
 //     console.log('click')
 // }
+
+
+
+
+
+
+
+
+
+
+
