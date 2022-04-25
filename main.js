@@ -2,7 +2,6 @@ var game = new Game();
 var sleuth = game.player1
 var hooligan = game.player2
 var gameBoardSquares = document.querySelectorAll('.cell');
-// var restartButton = document.getElementById("restartButton");
 var playerTurnText = document.querySelector('.player-turn');
 var winningText = document.querySelector(".winning-text");
 var winningMessage = document.getElementById("winningMessage");
@@ -15,8 +14,8 @@ function gameStart() {
     gameBoardSquares.forEach(square => {
         square.classList.remove('hooligan');
         square.classList.remove('sleuth');
-        winningMessage.classList.remove('show');
         square.addEventListener('click', squareClicked, {once: true})
+        winningMessage.classList.remove('show');
         game.playerChangeAfterWin();
         displayPlayerTurn();
         displayWinCount();
@@ -31,7 +30,6 @@ function squareClicked(e) {
     displayPlayerTurn();
     iconPlacement(square, game.playerMove);
     if (whoWins(game.playerMove)) {
-        // stopSquareClick();
         gameCompleted(false);
     } 
     if (itsADraw()) {
@@ -42,16 +40,16 @@ function squareClicked(e) {
 function gameCompleted(draw) {
     if (draw) {
         winningText.innerText = `It's a stalemate!`;
-        winningMessage.classList.add('show');
-        timeOut()
+        // winningMessage.classList.add('show');
+        // timeOut()
     } else {
         winningText.innerText = `The ${game.currentPlayer ? 'Sleuth' : 'Hooligan'} wins!`;
-        winningMessage.classList.add('show');
+        // winningMessage.classList.add('show');
         game.updatePlayerWins()
         timeOut()
         // game.playerChangeAfterWin()
     }
-    
+    winningMessage.classList.add('show');
 }
 
 function itsADraw() {
