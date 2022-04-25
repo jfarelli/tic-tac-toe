@@ -11,8 +11,6 @@
 <body>
   <div class="content-wrapper">
     <section class="player">
-      <label class="player-one"></label>
-      <br>
       <label class="wins">Win Count</label>
       <br>
       <label class="display-sleuth-wins">0</label>
@@ -23,20 +21,18 @@
       <label class="game-text">Sleuths vs. Hooligans</label>
       <div class="player-turn" id="displayTurn"></div>
       <div class="game-board" id="gameBoard">
-        <div game-square-index="0" class="cell"></div>
-        <div game-square-index="1" class="cell"></div>
-        <div game-square-index="2" class="cell"></div>
-        <div game-square-index="3" class="cell"></div>
-        <div game-square-index="4" class="cell"></div>
-        <div game-square-index="5" class="cell"></div>
-        <div game-square-index="6" class="cell"></div>
-        <div game-square-index="7" class="cell"></div>
-        <div game-square-index="8" class="cell"></div>
+        <div class="cell cell-0" game-square></div>
+        <div class="cell cell-1" game-square></div>
+        <div class="cell cell-2" game-square></div>
+        <div class="cell cell-3" game-square></div>
+        <div class="cell cell-4" game-square></div>
+        <div class="cell cell-5" game-square></div>
+        <div class="cell cell-6" game-square></div>
+        <div class="cell cell-7" game-square></div>
+        <div class="cell cell-8" game-square></div>
       </div>
     </section>
     <section class="player">
-      <label class="player-two"></label>
-      <br>
       <label class="wins">Win Count</label>
       <br>
       <label class="display-hooligan-wins" id="displayHooliganWins">0</label>
