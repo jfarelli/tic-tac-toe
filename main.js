@@ -5,7 +5,7 @@ var gameBoardSquares = document.querySelectorAll('.cell');
 var restartButton = document.getElementById("restartButton");
 var playerTurnText = document.querySelector('.player-turn');
 var winningText = document.querySelector(".winning-text");
-// var winningMessage = document.getElementById("winningMessage");
+var winningMessage = document.getElementById("winningMessage");
 var displaySleuthWins = document.querySelector('.display-sleuth-wins');
 var displayHooliganWins = document.querySelector('.display-hooligan-wins');
 
@@ -19,14 +19,16 @@ function gameStart() {
     gameBoardSquares.forEach(square => {
         square.classList.remove('hooligan');
         square.classList.remove('sleuth');
+        winningMessage.classList.remove('show');
         square.addEventListener('click', squareClicked, {once: true})
-        // playerChangeAfterWin();
+        game.playerChangeAfterWin();
         displayPlayerTurn();
         displayWinCount();
         
         
     })   
 }
+
 
 
 
@@ -54,13 +56,14 @@ function gameCompleted(draw) {
         playerTurnText.innerText = `It's a stalemate!`
         timeOut()
     } else {
-        playerTurnText.innerText = `The ${game.currentPlayer ? 'Sleuth' : 'Hooligan'} wins!`
+        winningText.innerText = `The ${game.currentPlayer ? 'Sleuth' : 'Hooligan'} wins!`
+        winningMessage.classList.add('show');
         game.updatePlayerWins()
-        game.playerChangeAfterWin()
         timeOut()
+        // game.playerChangeAfterWin()
         
     }
-    // winningMessage.classList.add('show');
+    
 }
 
 
@@ -102,7 +105,9 @@ function displayWinCount() {
   }
 }
 
-
+function stopClick() {
+    gameBoardSquares.removeEventListener('click', squareClicked)
+}
         
     // if (whoWins(!game.currentPlayer = game.playerMove)) {
         //    if (!game.currentPlayer === game.playerMove) {
