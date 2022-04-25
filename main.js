@@ -2,7 +2,7 @@ var game = new Game();
 var sleuth = game.player1
 var hooligan = game.player2
 var gameBoardSquares = document.querySelectorAll('.cell');
-var restartButton = document.getElementById("restartButton");
+// var restartButton = document.getElementById("restartButton");
 var playerTurnText = document.querySelector('.player-turn');
 var winningText = document.querySelector(".winning-text");
 var winningMessage = document.getElementById("winningMessage");
@@ -10,10 +10,6 @@ var displaySleuthWins = document.querySelector('.display-sleuth-wins');
 var displayHooliganWins = document.querySelector('.display-hooligan-wins');
 
 gameStart();
-
-// restartButton.addEventListener('click', gameStart);
-
-
 
 function gameStart() {
     gameBoardSquares.forEach(square => {
@@ -24,15 +20,8 @@ function gameStart() {
         game.playerChangeAfterWin();
         displayPlayerTurn();
         displayWinCount();
-        
-        
     })   
 }
-
-
-
-
-
 
 function squareClicked(e) {
     var square = e.target;
@@ -50,25 +39,20 @@ function squareClicked(e) {
     } 
 }
 
-
 function gameCompleted(draw) {
     if (draw) {
-        playerTurnText.innerText = `It's a stalemate!`
+        winningText.innerText = `It's a stalemate!`;
+        winningMessage.classList.add('show');
         timeOut()
     } else {
-        winningText.innerText = `The ${game.currentPlayer ? 'Sleuth' : 'Hooligan'} wins!`
+        winningText.innerText = `The ${game.currentPlayer ? 'Sleuth' : 'Hooligan'} wins!`;
         winningMessage.classList.add('show');
         game.updatePlayerWins()
         timeOut()
         // game.playerChangeAfterWin()
-        
     }
     
 }
-
-
-
-
 
 function itsADraw() {
     return [...gameBoardSquares].every(square => {
@@ -105,40 +89,12 @@ function displayWinCount() {
   }
 }
 
-function stopClick() {
-    gameBoardSquares.removeEventListener('click', squareClicked)
-}
+// function stopClick() {
+//     gameBoardSquares.removeEventListener('click', squareClicked)
+// }
         
-    // if (whoWins(!game.currentPlayer = game.playerMove)) {
-        //    if (!game.currentPlayer === game.playerMove) {
-        //     game.currentPlayer = false;
-        //    } else if (game.currentPlayer === game.playerMove){
-        //     game.currentPlayer = true;
-        //    }
-            
-            // displayWinCount()
-        //    return game.currentPlayer;
-    //    } else {
-    //        game.currentPlayer = false;
-    //     //    displayWinCount()
-    //    }
-   
 
 
-
-
-// function stopSquareClick(square) {
-//     square.removeEventListener('click', squareClicked)
-// }
-
-// function() {
-//     if ()
-// }
-// if (currentGame.gameBoardSquares.includes("") && !currentGame.gameCompleted)
-
-// function limitClicks() {
-//     gameGrid.removeEventListener('click', placeToken)
-//   }
 
 
 

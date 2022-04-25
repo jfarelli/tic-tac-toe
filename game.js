@@ -40,8 +40,7 @@ class Game {
 }
 
 
-        // = this.currentPlayer === "Sleuth" ? "Hooligan" : "Sleuth";
-        // statusDisplay.innerHTML = currentPlayerTurn();
+
     
 
     // winningCombos() {
