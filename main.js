@@ -1,31 +1,36 @@
 var game = new Game();
 var sleuth = game.player1
 var hooligan = game.player2
-var restartButton = document.getElementById("restartButton")
-var gameBoardSquares = document.querySelectorAll('.cell')
+var gameBoardSquares = document.querySelectorAll('.cell');
+var restartButton = document.getElementById("restartButton");
 var playerTurnText = document.querySelector('.player-turn');
 var winningText = document.querySelector(".winning-text");
-var winningMessage = document.getElementById("winningMessage");
+// var winningMessage = document.getElementById("winningMessage");
 var displaySleuthWins = document.querySelector('.display-sleuth-wins');
 var displayHooliganWins = document.querySelector('.display-hooligan-wins');
 
 gameStart();
 
-restartButton.addEventListener('click', gameStart);
+// restartButton.addEventListener('click', gameStart);
 
 
 
 function gameStart() {
-    game.currentPlayer = false;
     gameBoardSquares.forEach(square => {
         square.classList.remove('hooligan');
         square.classList.remove('sleuth');
         square.addEventListener('click', squareClicked, {once: true})
-        // game.toggleTurn();
+        // playerChangeAfterWin();
         displayPlayerTurn();
         displayWinCount();
+        
+        
     })   
 }
+
+
+
+
 
 function squareClicked(e) {
     var square = e.target;
@@ -35,6 +40,7 @@ function squareClicked(e) {
     displayPlayerTurn();
     iconPlacement(square, game.playerMove);
     if (whoWins(game.playerMove)) {
+        // stopSquareClick();
         gameCompleted(false);
     } 
     if (itsADraw()) {
@@ -42,20 +48,28 @@ function squareClicked(e) {
     } 
 }
 
+
 function gameCompleted(draw) {
     if (draw) {
         playerTurnText.innerText = `It's a stalemate!`
+        timeOut()
     } else {
         playerTurnText.innerText = `The ${game.currentPlayer ? 'Sleuth' : 'Hooligan'} wins!`
         game.updatePlayerWins()
+        game.playerChangeAfterWin()
         timeOut()
+        
     }
     // winningMessage.classList.add('show');
 }
 
+
+
+
+
 function itsADraw() {
     return [...gameBoardSquares].every(square => {
-        return square.classList.contains('sleuth') || square.classList.contains('hooligan');
+        return square.classList.contains(game.player1) || square.classList.contains(game.player2);
     })
 }
 
@@ -70,14 +84,14 @@ function iconPlacement(square) {
 function whoWins() {
     return game.winningNumbers.some(combination => {
         return combination.every(square => {
-            return gameBoardSquares[square].classList.contains(game.playerMove)
+            return gameBoardSquares[square].classList.contains(game.playerMove);
         })
     }) 
 }
 
 function displayPlayerTurn() {
     game.whosTurn()
-    playerTurnText.innerText = `It's the ${game.currentPlayer ? 'Hooligan' : 'Sleuth'}'s turn!`
+    playerTurnText.innerText = `It's the ${game.currentPlayer ? 'Hooligan' : 'Sleuth'}'s turn!`;
 }
 
 function displayWinCount() {
@@ -89,9 +103,37 @@ function displayWinCount() {
 }
 
 
+        
+    // if (whoWins(!game.currentPlayer = game.playerMove)) {
+        //    if (!game.currentPlayer === game.playerMove) {
+        //     game.currentPlayer = false;
+        //    } else if (game.currentPlayer === game.playerMove){
+        //     game.currentPlayer = true;
+        //    }
+            
+            // displayWinCount()
+        //    return game.currentPlayer;
+    //    } else {
+    //        game.currentPlayer = false;
+    //     //    displayWinCount()
+    //    }
+   
 
 
 
+
+// function stopSquareClick(square) {
+//     square.removeEventListener('click', squareClicked)
+// }
+
+// function() {
+//     if ()
+// }
+// if (currentGame.gameBoardSquares.includes("") && !currentGame.gameCompleted)
+
+// function limitClicks() {
+//     gameGrid.removeEventListener('click', placeToken)
+//   }
 
 
 

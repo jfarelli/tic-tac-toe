@@ -1,12 +1,10 @@
-// var player = new Player();
-
 class Game {
     constructor() {
         this.player1 = new Player('Sleuth', '<img src="assets/detective.svg"class="sleuth-icon"/>');
         this.player2 = new Player( 'Hooligan', '<img src="assets/Burgler.svg"class="hooligan-icon"/>');
         this.currentPlayer;
         this.playerMove;
-        this.isGameSet = true;
+        // this.isActive = true;
         this.gameBoard = ["", "", "", "", "", "", "", "", ""];
         this.winningNumbers = [
             [0, 1, 2],
@@ -21,23 +19,67 @@ class Game {
     }
 
     whosTurn() {
-        this.currentPlayer = !this.currentPlayer
-        // console.log(this.currentPlayer)
+        this.currentPlayer = !this.currentPlayer;
     }
 
     updatePlayerWins() {
-        if (game.currentPlayer) {
+        if (this.currentPlayer) {
             this.player1.increaseWins()
         } else {
             this.player2.increaseWins()
         }
     }
 
+    playerChangeAfterWin() {
+        if (!this.currentPlayer) {
+          this.currentPlayer = true;
+        } else if (this.currentPlayer) {
+            this.currentPlayer = false;
+        }
+    }
+}
+
+
+        // = this.currentPlayer === "Sleuth" ? "Hooligan" : "Sleuth";
+        // statusDisplay.innerHTML = currentPlayerTurn();
+    
+
+    // winningCombos() {
+    //         var roundWon = false;
+    //         for (var i = 0; i <= 7; i++) {
+    //             var winCondition = winningNumbers[i];
+    //             var a = gameBoard[winningNumbers[0]];
+    //             var b = gameBoard[winningNumbers[1]];
+    //             var c = gameBoard[winningNumbers[2]];
+    //             if (a === '' || b === '' || c === '') {
+    //                 continue;
+    //             }
+    //             if (a === b && b === c) {
+    //                 roundWon = true;
+    //                 break
+    //             }
+    //         }
+    // }
+    //     if (roundWon) {
+    //             winningText.innerHTML = winningMessage();
+    //             idActive = false;
+    //             return;
+    //         }
+        
+
+    //     return game.winningNumbers.some(combination => {
+    //         return combination.every(square => {
+    //             return gameBoardSquares[square].classList.contains(game.playerMove)
+    //         })
+    //     }) 
+    // }
+
+
     // toggleTurn() {
     //     if(this.currentPlayer === this.player2) {
-    //       this.currentPlayer = this.player1;
-    //     } else {
     //       this.currentPlayer = this.player2;
+    //     } else {
+    //       this.currentPlayer = this.player1;
     //     }
     //   }
 
@@ -68,7 +110,7 @@ class Game {
     
     
 
-}
+
 
 
 
