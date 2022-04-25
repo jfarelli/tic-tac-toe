@@ -18,13 +18,13 @@ body {
 h1, label {
     font-weight: bold;
     text-align:center;
-    color: #061E1E;
+    color: black;
     margin-bottom: 10px;
 }
 
 h1 {
     font-size: 5.5rem;
-    color: rgba(244, 245, 228, .8);
+    color: rgb(244, 245, 228);
     background-color: black;
     margin-top: 0;
 }
@@ -33,7 +33,7 @@ label {
     font-size: 2.75rem;
 }
 
-button {
+/* button {
     background-color: rgb(32, 147, 147);
     border: solid 4px #061E1E;
     color: #061E1E;
@@ -44,29 +44,29 @@ button {
     border-radius: 4px;
     padding: 10px 20px ;
     cursor: pointer;
-}
+} */
 
-button:hover {
+/* button:hover {
     background-color: #061E1E;
     border: solid 4px rgb(32, 147, 147);
     color: rgb(32, 147, 147);
     cursor: pointer;
-}
+} */
 
 .content-wrapper {
-    background-color: rgb(32, 147, 147);
+    background-color: rgb(244, 245, 228);
     display: flex;
     text-align: center;
     flex-direction: row;
     justify-content: space-evenly;
     width: 100%;
-    background-image: linear-gradient(rgba(244, 245, 228, .6), rgba(26, 87, 87, .5), rgba(6, 30, 30, .8));
+    background-image: linear-gradient(rgba(244, 245, 228, .6), rgba(117, 125, 125, 0.8), rgba(0, 0, 0, 0.8));
 }
 
 .game-text {
     font-size: 45px;
     color: black;
-    text-shadow: 2px 2px rgba(244, 245, 228, .4);
+    text-shadow: 2px 2px rgba(244, 245, 228, .8);
 }
 
 .game-board {
@@ -76,7 +76,7 @@ button:hover {
     justify-items: center;
     align-items: center;
     grid-template-columns: repeat(3, auto);
-    background-color: rgb(26, 87, 87);
+    background-color: rgb(117, 125, 125);
     /* margin: 0; */
     margin-block-start: 25%;
 }
@@ -84,8 +84,8 @@ button:hover {
 .cell {
     width: 100px;
     height: 100px;
-    background-color: rgb(26, 87, 87);
-    border: 3px solid #061E1E;
+    background-color: rgb(117, 125, 125);;
+    border: 3px solid black;
 }
 
 .cell.sleuth {
@@ -104,7 +104,7 @@ button:hover {
 } */
 
 .cell:hover {
-    background-color: rgba(6, 30, 30, .2);
+    background-color: rgba(0, 0, 0, .2);
 }
 
 .cell:first-child, 
@@ -132,9 +132,9 @@ button:hover {
 }
 
 .center {
-    background-color: rgb(26, 87, 87);
+    background-color: rgb(117, 125, 125);
     width: 30rem;
-    border: ridge 3px rgba(244, 245, 228, .8);
+    border: ridge 3px rgba(244, 245, 228, .6);
 }
 
 .player {
@@ -142,12 +142,11 @@ button:hover {
     height: 100%;
     width: 20%;
     margin-bottom: 0;
-    
 }
 
 .wins {
     font-size: 30px;
-    border-bottom: solid 2px #061E1E;
+    border-bottom: solid 2px black;
 }
 
 .hooligan-icon {
@@ -183,8 +182,8 @@ button:hover {
     left: 250px;
     right: 250px; 
     bottom: 50px;
-    border: solid 40px rgba(6, 30, 30, .8);
-    background-color: rgba(26, 87, 87, .9);
+    border: solid 40px rgba(0, 0, 0, .8);
+    background-color: rgba(117, 125, 125, .9);
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -195,7 +194,7 @@ button:hover {
 }
 
 .winning-text {
-    color: #061E1E;
+    color: black;
     font-size: 100px;
     font-weight: bold;
     padding: 50px;
