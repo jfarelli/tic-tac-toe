@@ -132,11 +132,6 @@ Thank you for visiting!
 <br>
 
 
-
-
-
-
-
 **Languages used:**<br>
 JavaScript
 <br>
@@ -144,3 +139,9 @@ CSS
 <br>
 HTML
 
+
+<br>
+
+
+**Contributors:**   
+Jordan Farelli: Please visit my [LinkedIn](https://www.linkedin.com/in/jordan-farelli/) and [GitHub](https://github.com/jfarelli) profiles.
