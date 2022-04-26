@@ -23,8 +23,8 @@
 <br>
 
 **Starting the game:**<br>
-To get the game to start on a cleared board, I envoke a `startGame()` function at the start of my code, so it's the first thing the system recognizes.<br>
-This then looks to the `gameStart()` function which is written to clear all the player icons from the board, ensure that the pop-up message is removed, displays the current players turn, and after games are won, it will change the player turn using the    `playerChangeAfterWin()` function, and ensure that win counts are updated by accessing the `updatePlayerWins()` function.
+To get the game to start on a cleared board, I envoke a `gameStart()` function at the start of my code, so it's the first thing the system recognizes.<br>
+This then looks to the `gameStart()` function which is written to clear all the player icons from the board, ensure that the pop-up message is removed, displays the current players turn, and after games are won, it will change the player turn using the    `playerChangeAfterWin()` function, and ensure that win counts are updated in the data model, and also on the visible board by accessing the `updatePlayerWins()` function.
 
 <br>
 
@@ -37,11 +37,11 @@ This function is then invoked in the `displayPlayerTurn()` function which displa
 
 **Declaring a winner:**<br>
 To know when a winner is declared, I took a more streamlined approach. I wanted to do more with less. Instead of having big chunky code, I looked up more advanced methods to make sure my approach would work.<br>
-The function I wrote for `whoWins()`, uses the `.some()` method to look through each combo in the `winningNumbers` array to detect what a winning combination is.<br>
+The function I wrote for `whoWins()`, uses the `.some()` method to look through each combo in the `winningNumbers` array within the Game class to detect what a winning combination is.<br>
 This method is then connected by the `.every()` method (which tests if the elements in the array pass the test that the `.some()` method laid out) to look at every square on the board to check that a player has a winning combination.<br>
-If a combo is detected using a certain players icon, then the `whoWins()` funtion is envoked in a conditional statement within the `squareClicked()` function (which detects the clicks on the board).<br>
-If a winner is declared, the `gameCompleted()` function is then ran to display the `winningMessage` pop-up, displaying the winning player, and also updates that player's win count within the data model, and also visually on the board by accesing the `updatePlayerWins()` function.<br>
-The board resets after a brief pause usind a `timeOut()` function.
+If a player's combo is detected, then the `whoWins()` funtion is envoked in a conditional statement within the `squareClicked()` function (which detects the clicks on the board).<br>
+If a winner is declared, the `gameCompleted()` function is then ran to display the `winningMessage` pop-up, displaying the winning player, and also updates that player's win count within the data model, and visually on the board by accesing the `updatePlayerWins()` function.<br>
+The board resets after a brief pause usind a `timeOut()` function, and then the `gameStart()` function runs to reset the board.
 
 </details>
 <br>
@@ -60,16 +60,17 @@ The board resets after a brief pause usind a `timeOut()` function.
 <br>
 
 **Declaring a Stalemate:**<br>
-To declare the draw, I wrote the `itsADraw()` function which uses the `.every()` method again to check that every square is occupied by either players icons.<br>
+To declare the draw, I wrote the `itsADraw()` function which uses the `.every()` method again to check that every square is occupied by either player.<br>
 Once it's detected that the `gameBoard` and all squares are filled, this function is then also linked to the `squareClicked()` function in a conditional. If this conditional is met, the `gameCompleted()` function is then ran to display the stalemate message within a pop-up.<br> 
-The `gameBoard` then resets after a brief pause using a `timeOut()` function. Before the next turn, the `gameStart()` function is ran, clearing the board and updating data within the data model. Then the turn is changed to the player that didn't start the previous round.<br>
+The `gameBoard` then resets after a brief pause using a `timeOut()` function.<br> 
+Before the next turn, the `gameStart()` function is ran, clearing the board and updating data within the data model. Then the turn is changed to the player that didn't start the previous round.<br>
 This player change is accomplished due to the invocation of the `playerChangeAfterWin()` function within the `gameStart()` function. This function detects the player that won, and then resets the `currentPlayer` boolean value, so that it changes to the other player on a new game.
 
 </details>
 <br>
 
 ### Challenges
-This project stretched me to my (current) limits. I found this extremely challenging, because this was a project where we, the students, had to plan out this project from scratch.
+This project stretched me to my (current) limits. I found this extremely challenging, because this was a project where we, the students, had to plan out this project from the ground up.
 
 <details>
 <summary>Challenge Details</summary>
@@ -103,9 +104,9 @@ It was an incredible challenge to even start writing functions. Deciding what fu
 
 After about a full day filled with stress and questioning what I got myself into, I started chipping away. 
 
-Initial ideas, turned to shell functions w/ pseudocode written inside. Those shells and pseudocode turned into functionality. That functionality drove other functionality. Variables were created, methods were used, codes were broken, error messages were had, emotions flew...and the beat goes on.
+Initial ideas, turned to shell functions w/ pseudocode written inside. Those shells and pseudocode turned into functionality. That functionality drove other functionality. Variables were created, methods were used, codes were broken, error messages were had, emotions raged...and the beat goes on.
 
-Throughout the process, I felt all of the emotions: frustration, anger, happiness, sadness, more frustration, more anger, and then finally (FINALLY!!!) it all washed away after I saw that my code worked and my game was functional. **WHAT A RIDE!!!**
+Throughout this whirlwind process, I felt frustration, anger, happiness, sadness, MORE frustration, accomplishment, new code breaking old code, MORE anger, and then finally (FINALLY!!!) it all washed away after I saw that my code worked and my game was functional. **WHAT A ROLLERCOASTER RIDE!!!**
 </details>
 
 <br>
@@ -120,15 +121,16 @@ Within this project and throughout MOD 1, I have been fed information at an acce
 
 There's a saying at Turing that the information given is **"like getting a firehose to the face. You're not going to absorb everything."**
 
-However, I've seen myself grow from the initial "What the heck did we just learn?", to knowing when I need to iterate through an array, write a conditional, instantiate a class, write a function,etc...
+However, I've seen myself grow from the initial "What the heck?", to knowing when I need to iterate through an array, write a conditional, instantiate a class, different method uses, etc...
+Even finding myeslf being able to help others, which is huge coming from a background where I knew zero code. 
 
-My brain is full to bursting on a daily basis, and I come back day after day to get my fill. Even after getting blasted with knowledge on the daily, after all the highs and all the lows, I am still very intrigued with what can be accomplished within this profession. 
+My brain is full to bursting on a daily basis, and I come back day after day to get my fill. And, even after getting blasted with knowledge on the daily, after all the highs and all the lows, I am still very much intrigued with what can be accomplished within this profession. 
 
 There is so much information out there and different ways to do accomplish functional code, that it drives me to learn more; be it in a module class, online course, or the go-to MDN website. 
 
-My hope is that pass on to the next module, so that I can continue to expand on the fundamentals taght and get the opportunity to build my knowledge.
+My hope is to move on to the next module, so that I can continue to expand on the information taught during MOD 1, and learn to develop more integral and detailed programs.
 
-Thank you for visiting!
+Here's to the future!
 
 <br>
 
