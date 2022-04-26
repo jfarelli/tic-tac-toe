@@ -4,7 +4,7 @@
 
 * Welcome to my final MOD 1 solo project at [Turing](https://turing.edu/) within the [Front-End Program](https://frontend.turing.edu/)!
 
-* For this project, we were presented with an opportuity to build out a classic head-to-head game on our own!
+* For this project, we (the students) were presented with an opportuity to build out a classic head-to-head game all on our own!
 
 ### How to play:
 
@@ -70,7 +70,7 @@ This player change is accomplished due to the invocation of the `playerChangeAft
 <br>
 
 ### Challenges
-This project stretched me to my (current) limits. I found this extremely challenging, because this was a project where we, the students, had to plan out this project from the ground up.
+This project stretched me to my (current) limits. I found this project extremely challenging, because we, the students, had to plan it out and execute it from the ground up.
 
 <details>
 <summary>Challenge Details</summary>
