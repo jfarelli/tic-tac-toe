@@ -15,14 +15,16 @@ For this project, we were presented with an opportuity to build out a classic he
 * After a brief pause, the game board will reset.
 <br>
 **Declaring the winner**
-https://user-images.githubusercontent.com/97558758/165325346-4a02018f-ee67-49aa-9aa0-d99acd836569.mov
+
+[Declaring a winner](https://user-images.githubusercontent.com/97558758/165325346-4a02018f-ee67-49aa-9aa0-d99acd836569.mov)
 
 <br>
 * In the event of a draw, a pop-up window will display declaring **"It's a stalemate!"**
 * The game will then restart after a brief pause, having the player that didn't start the turn start the new game.
 <br>
 **Stalemate**
-https://user-images.githubusercontent.com/97558758/165327352-91cb3534-4a93-4bd1-a32d-0c44e274e86f.mov
+
+[Stalemate](https://user-images.githubusercontent.com/97558758/165327352-91cb3534-4a93-4bd1-a32d-0c44e274e86f.mov)
 
 
 
