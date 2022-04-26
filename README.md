@@ -22,19 +22,19 @@
 <summary>Game Details</summary>
 <br>
 
-**Starting the game:**
+**Starting the game:**<br>
 To get the game to start on a cleared board, I envoke a `startGame()` function at the start of my code, so it's the first thing the system recognizes.<br>
 This then looks to the `gameStart()` function which is written to clear all the player icons from the board, ensure that the pop-up message is removed, displays the current players turn, and after games are won, it will change the player turn using the    `playerChangeAfterWin()` function, and ensure that win counts are updated by accessing the `updatePlayerWins()` function.
 
 <br>
 
-**Changing Turns:**
+**Changing Turns:**<br>
 To get the player change to happen, I wrote a `whoseTurn()` function that detects the current player and switches to the other player after a move is made.<br>
 This function is then invoked in the `displayPlayerTurn()` function which displays the current player on the board.
 
 <br>
 
-**Declaring a winner:**
+**Declaring a winner:**<br>
 To know when a winner is declared, I took a more streamlined approach. I wanted to do more with less. Instead of having big chunky code, I looked up more advanced methods to make sure my approach would work.<br>
 The function I wrote for `whoWins()`, uses the `.some()` method to look through each combo in the `winningNumbers` array to detect what a winning combination is.<br>
 This method is then connected by the `.every()` method (which tests if the elements in the array pass the test that the `.some()` method laid out) to look at every square on the board to check that a player has a winning combination.<br>
@@ -58,7 +58,7 @@ The board resets after a brief pause usind a `timeOut()` function.
 <summary>Stalemate Details</summary>
 <br>
 
-**Declaring a Stalemate:**
+**Declaring a Stalemate:**<br>
 To declare the draw, I wrote the `itsADraw()` function which uses the `.every()` method again to check that every square is occupied by either players icons.<br>
 Once it's detected that all squares are filled, this function is then also linked to the `squareClicked()` function in a conditional. If this conditional is met, the `gameCompleted()` function is then ran to display the stalemate message within a pop-up.<br> 
 The board then resets after a brief pause using a `timeOut()` function, and then the turn is changed to the player that didn't start the previous round.<br>
