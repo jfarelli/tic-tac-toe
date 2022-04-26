@@ -2,7 +2,7 @@
 
 ## Will the law win, or will crime pay?!
 
-* Welcome to my final solo project at [Turing](https://turing.edu/) within the [Front-End Program](https://frontend.turing.edu/)!
+* Welcome to my final MOD 1 solo project at [Turing](https://turing.edu/) within the [Front-End Program](https://frontend.turing.edu/)!
 
 * For this project, we were presented with an opportuity to build out a classic head-to-head game on our own!
 
