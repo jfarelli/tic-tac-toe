@@ -36,6 +36,16 @@ function squareClicked(e) {
         gameCompleted(true);
     } 
 }
+function iconPlacement(square) {
+    var squareIndex = square.classList[1].split("-")[1]
+    game.gameBoard[squareIndex] = game.playerMove;
+    console.log(game.gameBoard)
+    updateSquare(squareIndex);
+}
+
+function updateSquare(squareIndex) {
+    document.querySelector(`.cell-${squareIndex}`).classList.add(game.gameBoard[squareIndex])
+}
 
 function gameCompleted(draw) {
     if (draw) {
@@ -48,17 +58,6 @@ function gameCompleted(draw) {
     }
     winningMessage.classList.add('show');
     displayWinCount();
-}
-
-function iconPlacement(square) {
-    var squareIndex = square.classList[1].split("-")[1]
-    game.gameBoard[squareIndex] = game.playerMove;
-    console.log(game.gameBoard)
-    updateSquare(squareIndex);
-}
-
-function updateSquare(squareIndex) {
-    document.querySelector(`.cell-${squareIndex}`).classList.add(game.gameBoard[squareIndex])
 }
 
 function displayPlayerTurn() {
