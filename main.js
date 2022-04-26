@@ -36,6 +36,7 @@ function squareClicked(e) {
         gameCompleted(true);
     } 
 }
+
 function iconPlacement(square) {
     var squareIndex = square.classList[1].split("-")[1]
     game.gameBoard[squareIndex] = game.playerMove;
