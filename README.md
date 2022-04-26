@@ -6,7 +6,7 @@
 
 * For this project, we were presented with an opportuity to build out a classic head-to-head game on our own!
 
-### How to play!
+### How to play:
 
 * Open the webpage to begin: [Tic-Tac-Toe](https://jfarelli.github.io/tic-tac-toe/)
 * Upon opening the page, you'll be presented with a cleared board. 
@@ -45,7 +45,7 @@ The board resets after a brief pause usind a `timeOut()` function.
 </details>
 <br>
 
-**Stalemate**
+### Stalemate:
 
 * In the event of a draw, a pop-up window will display declaring **"It's a stalemate!"**
 * The game will then restart after a brief pause, having the player that didn't start the turn start the new game.
