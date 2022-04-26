@@ -57,5 +57,5 @@ class Game {
 
     timeOut() {
         window.setTimeout(gameStart, 2000);
-      }
+    }
 }
