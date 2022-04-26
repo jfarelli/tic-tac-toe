@@ -73,6 +73,8 @@ This project stretched me to my (current) limits. I found this extremely challen
 <details>
 <summary>Challenge Details</summary>
 <br>
+
+
 The planning phase was very important to this project. I started by listing out how I thought the game would function. It was mainly brief steps, such as: 
 
 1. Game should start with a fresh board.
@@ -105,10 +107,12 @@ Initial ideas, turned to shell functions w/ pseudocode written inside. Those she
 Throughout the process, I felt all of the emotions: frustration, anger, happiness, sadness, more frustration, more anger, and then finally (FINALLY!!!) it all washed away after I saw that my code worked and my game was functional. **WHAT A RIDE!!!**
 </details>
 
+<br>
 
 ### Future Iterations:
 For future iterations, I would like to write out code that implements local storage. This is a feature that has been suggested in most of our projects as "extra". However, I feel that it's very important to learn, so I hope someday to implement it on this, and future projects.
 
+<br>
 
 ### Reflection:
 Within this project and throughout MOD 1, I have been fed information at an accelerated rate, and I can't say that I've retained everything. 
